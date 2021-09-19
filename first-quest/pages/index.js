@@ -1,9 +1,8 @@
+import JobCard from "../components/JobCard";
 
 
 export default function Home() {
   return (
-    <div>
-      <h1>Main Page</h1>
-    </div>
+      <JobCard />
   )
 }

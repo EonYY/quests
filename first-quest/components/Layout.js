@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         color: '#FCFCFC'
     },
     root: {
-        display: "flex"
+        display: "flex",
     },
     active : {
         background: "$f8f8ff"
