@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar'
 
 
 
-export default function JobCard() {
+export default function JobCard({ job }) {
 
     return (
       <Card elevation={8}>
@@ -19,8 +19,8 @@ export default function JobCard() {
 
           <Grid item xs>
             <CardHeader
-              title="Job Title"
-              subheader="Company Name"
+              title={job.title}
+              subheader={job.companyName}
             />
           </Grid>
 
