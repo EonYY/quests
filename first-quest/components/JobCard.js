@@ -8,12 +8,10 @@ import Grid from '@mui/material/Grid'
 import DeleteOutlined from '@mui/icons-material/DeleteOutlined'
 import { makeStyles } from '@mui/styles'
 import Avatar from '@mui/material/Avatar'
-import { yellow, green, pink, blue } from '@mui/material/colors'
 
 
 
-export default props => {
-
+export default function JobCard() {
 
     return (
       <Card elevation={8}>
@@ -44,10 +42,4 @@ export default props => {
         </Grid>
       </Card>
     )
-
-
-
-
-
-
 }
