@@ -8,7 +8,6 @@ const drawerWidth = 240
 
 const useStyles = makeStyles({
     page: {
-        background: "#1D1D42",
         width: "100%",
         color: '#FCFCFC'
     },
@@ -73,29 +72,26 @@ export default function Layout({ children }) {
                     </Typography>
                 </div>
 
-            {/* List & Links */}
-            <List>
-                {menuItems.map(item => (
-                    <ListItem
-                        button
-                        key={item.text}
-                        onClick={() => router.push(item.path)}
-                        className={location.pathname == item.path ? classes.active : null}
-                    >
-                        <ListItemIcon>{item.icon}</ListItemIcon> 
-                        <ListItemText primary={item.text} />    
-                    </ListItem>
-                ))}
-            </List>
-
+                {/* List & Links */}
+                <List>
+                    {menuItems.map(item => (
+                        <ListItem
+                            button
+                            key={item.text}
+                            onClick={() => router.push(item.path)}
+                            className={location.pathname == item.path ? classes.active : null}
+                        >
+                            <ListItemIcon>{item.icon}</ListItemIcon> 
+                            <ListItemText primary={item.text} />    
+                        </ListItem>
+                    ))}
+                </List>
             </Drawer>
 
-
+            {/* main content */}
             <div className={classes.page}>
-                {children}
+                { children }
             </div>
-
-
         </div>
     );
 }
