@@ -9,7 +9,7 @@ const drawerWidth = 240
 const useStyles = makeStyles({
     page: {
         width: "100%",
-        color: '#FCFCFC'
+        color: '#adbcdf'
     },
     drawer: {
         width: drawerWidth,

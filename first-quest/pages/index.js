@@ -1,4 +1,4 @@
-import JobCard from "../components/JobCard";
+import JobCard from "../components/Job/JobCard";
 import { Grid, Paper, Container} from '@mui/material'
 import { useState, useEffect } from 'react'
 

@@ -60,12 +60,10 @@ export default function JobCard({ job }) {
               justifyContent="flex-start"
               alignItems="center"
             >
-              <CardContent>
                 <CardHeader
                   title={job.title}
                   subheader={job.companyName + " • "}
                 />
-              </CardContent>
             </Grid>
 
 
