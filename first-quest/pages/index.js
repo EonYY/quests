@@ -1,10 +1,12 @@
 import JobCard from "../components/Job/JobCard";
 import { Grid, Paper, Container} from '@mui/material'
 import { useState, useEffect } from 'react'
+import JobModal from "../components/Job/JobModal"
 
 
 export default function Home() {
   const [jobs, setJobs] = useState([]);
+  const [viewJob, setViewJob] = useState({});
 
   useEffect(() => {
     fetch('http://localhost:8000/jobs')
@@ -23,12 +25,17 @@ export default function Home() {
 
 
   return (
+
+    <>
+
+    <JobModal job={viewJob} closeModal={() => setViewJob({})} />
+
     <Container>
       <Grid container spacing={3} justify="center">
 
         {jobs.map(job => (
-          <Grid item key={job.id} xs={12} md={8}>
-            <JobCard job={job} handleDelete={handleDelete}/>
+          <Grid item xs={12} md={8} key={job.id}>
+            <JobCard job={job} open={() => setViewJob(job)} handleDelete={handleDelete} />
           </Grid>
         ))}
 
@@ -37,7 +44,9 @@ export default function Home() {
           <Paper>News / Promoted</Paper>
         </Grid>
 
-    </Grid>
-  </Container>
+      </Grid>
+    </Container>
+    
+    </>
   )
 }

@@ -7,7 +7,6 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import { makeStyles } from '@mui/styles'
-import Avatar from '@mui/material/Avatar'
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone'
 import ShareTwoToneIcon from '@mui/icons-material/ShareTwoTone'
 
@@ -28,12 +27,12 @@ const useStyles = makeStyles({
   }
 })
 
-export default function JobCard({ job }) {
+export default function JobCard({ job }, props) {
   const classes = useStyles()
 
     return (
       <Card elevation={8} className={classes.root}>
-        <CardActionArea>
+        <CardActionArea onClick={props.open}>
           <Grid container>
 
             {/*Left Side*/}
