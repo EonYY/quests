@@ -34,8 +34,8 @@ export default function Home() {
       <Grid container spacing={3} justify="center">
 
         {jobs.map(job => (
-          <Grid item xs={12} md={8} key={job.id}>
-            <JobCard job={job} open={() => setViewJob(job)} handleDelete={handleDelete} />
+          <Grid item xs={12} md={8} >
+            <JobCard key={job.id} job={job} open={() => setViewJob(job)} {...job} handleDelete={handleDelete} />
           </Grid>
         ))}
 

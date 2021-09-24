@@ -4,7 +4,6 @@ import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } fr
 
 
 
-
 export default props => (
     <Dialog open={!!Object.keys(props.job).length} fullWidth>
         <DialogTitle>
