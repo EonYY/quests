@@ -32,7 +32,7 @@ export default function JobCard({ job }, props) {
 
     return (
       <Card elevation={8} className={classes.root}>
-        <CardActionArea onClick={props.open}>
+        <CardActionArea>
           <Grid container>
 
             {/*Left Side*/}
