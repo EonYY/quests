@@ -11,7 +11,6 @@ import ShareTwoToneIcon from '@mui/icons-material/ShareTwoTone'
 
 
 
-
 const useStyles = makeStyles({
   root: {
     minWidth: 600,
@@ -25,7 +24,7 @@ const useStyles = makeStyles({
   }
 })
 
-export default function JobCard({ job }, props) {
+export default function JobCard(job) {
   const classes = useStyles()
 
     return (
@@ -59,7 +58,7 @@ export default function JobCard({ job }, props) {
             >
                 <CardHeader
                   title={job.title}
-                  subheader={job.companyName + " • "}
+                  subheader={job.companyName + " • " + job.datePosted}
                 />
             </Grid>
 
