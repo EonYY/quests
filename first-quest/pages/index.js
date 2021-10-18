@@ -1,42 +1,36 @@
-import JobCard from "../components/Job/JobCard";
 import { Grid, Paper, Container} from '@mui/material'
-import { useState, useEffect } from 'react'
+import JobCard from "../components/Job/JobCard";
+import Head from 'next/head'
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import { firebaseApp } from '../firebase/clientApp';
+import { useState, useEffect } from 'react';
+
+
 
 
 export default function Home() {
+  const db = getFirestore(firebaseApp);
+  const q = query(collection(db, "jobs"));
+  console.log(q);
+
   const [jobs, setJobs] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8000/jobs')
-      .then(res => res.json())
-      .then(data => setJobs(data))
-  }, [])
-
-
-  const handleDelete = async (id) => {
-    await fetch('http://localhost:8000/jobs/' + id, {
-      method: 'DELETE'
-    })
-    const newJobs = jobs.filter(job => job.id != id)
-    setJobs(newJobs)
-  }
-
-
+  
   return (
     <Container>
+      <Head>
+        <title>Quests ~ Gaming Jobs</title>
+      </Head>
+
       <Grid container spacing={3} justify="center">
-
-        {jobs.map(job => (
-          <Grid item xs={12} md={8} >
-            <JobCard key={job.id} job={job} handleDelete={handleDelete} />
-          </Grid>
-        ))}
-
+        <Grid item xs={12} md={8} >
+          {jobs.map((job) => (
+              <JobCard key={job.id} {...job} />
+          ))}
+        </Grid>
 
         <Grid item xs={12} md={4} justify="center">
           <Paper>News / Promoted</Paper>
         </Grid>
-
       </Grid>
     </Container>
   )
