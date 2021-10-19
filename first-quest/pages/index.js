@@ -15,7 +15,11 @@ export default function Home() {
 
   const fetchJobs = async () => {
     const req = await getDocs(getJobs);
-    const tempJobs = req.docs.map((job) => ({ ...job.data(), id: job.id }));
+    const tempJobs = req.docs.map((job) => ({ 
+      ...job.data(),
+      id: job.id,
+      datePosted: job.data().datePosted.toDate(), 
+    }));
     setJobs(tempJobs);
   };
 

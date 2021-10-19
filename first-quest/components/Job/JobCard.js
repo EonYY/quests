@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   }
 })
 
-export default function JobCard(job) {
+export default function JobCard(job, props) {
   const classes = useStyles()
 
     return (
@@ -58,7 +58,7 @@ export default function JobCard(job) {
             >
                 <CardHeader
                   title={job.title}
-                  subheader={job.companyName + " • " + job.datePosted}
+                  subheader={job.companyName + " • " + differenceInMinutes(Date.now(), job.datePosted) + " mins ago"}
                 />
             </Grid>
 
