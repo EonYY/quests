@@ -35,7 +35,7 @@ export default function Home() {
         <Grid item xs={12} md={8} >
           {jobs.map((job) => (
                 <JobCard key={job.id} {...job} />
-          ))};
+          ))}
         </Grid>
 
         <Grid item xs={12} md={4} justify="center">
