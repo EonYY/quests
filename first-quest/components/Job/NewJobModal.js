@@ -24,7 +24,7 @@ export default function NewJobModal() {
         location: "",
         type: "",
         description: "",
-        remote: "",
+        remote: {},
     });
 
     const handleChange = e => {
@@ -127,7 +127,7 @@ export default function NewJobModal() {
                             fullWidth
                             variant="filled"
                             size="small"
-                            placeholder="Ex: https://www.stmgames.com"
+                            placeholder="Ex: https://stmgames.com"
                         />
                     </Grid>
 
@@ -190,8 +190,8 @@ export default function NewJobModal() {
                             variant="filled"
                             size="small"
                         >
-                            <MenuItem value="Yes">Yes</MenuItem>
-                            <MenuItem value="No">No</MenuItem>
+                            <MenuItem value={true}>Yes</MenuItem>
+                            <MenuItem value={false}>No</MenuItem>
         
                         </TextField>
                     </Grid>
