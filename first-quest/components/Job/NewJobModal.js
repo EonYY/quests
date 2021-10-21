@@ -9,12 +9,24 @@ import {
     DialogContent, 
     DialogActions, 
     Button 
-} from "@mui/material"
-import SendIcon from "@mui/icons-material/Send"
+} from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 import CloseIcon from '@mui/icons-material/Close';
+import { useState, useEffect } from "react";
 
 
 export default function NewJobModal() {
+    const [jobDetails, setJobDetails] = useState({
+        title: "",
+        category: "",
+        companyName: "",
+        companyURL: "",
+        location: "",
+        type: "",
+        description: "",
+        remote: "",
+    })
+
     return (
         <Dialog open={true} fullWidth>
             <DialogTitle>
@@ -37,6 +49,8 @@ export default function NewJobModal() {
                         <TextField
                             autoFocus
                             required
+                            name="title"
+                            value={jobDetails.title}
                             InputProps={{ disableUnderline: true }}
                             autoComplete="off"
                             margin="dense"
