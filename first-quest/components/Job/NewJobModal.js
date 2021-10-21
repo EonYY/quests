@@ -25,7 +25,15 @@ export default function NewJobModal() {
         type: "",
         description: "",
         remote: "",
-    })
+    });
+
+    const handleChange = e => {
+        e.persist();
+        setJobDetails(oldState => ({ 
+            ...oldState, 
+            [e.target.name]: e.target.value, 
+        }));
+    };
 
     return (
         <Dialog open={true} fullWidth>
@@ -51,6 +59,7 @@ export default function NewJobModal() {
                             required
                             name="title"
                             value={jobDetails.title}
+                            onChange={handleChange}
                             InputProps={{ disableUnderline: true }}
                             autoComplete="off"
                             margin="dense"
@@ -67,7 +76,9 @@ export default function NewJobModal() {
                         <TextField
                             required
                             select
-                            type="text"
+                            name="category"
+                            value={jobDetails.category}
+                            onChange={handleChange}
                             InputProps={{ disableUnderline: true }}
                             margin="dense"
                             label="Category"
@@ -86,6 +97,9 @@ export default function NewJobModal() {
                     <Grid item xs={6}>
                         <TextField
                             required
+                            name="companyName"
+                            value={jobDetails.companyName}
+                            onChange={handleChange}
                             type="text"
                             InputProps={{ disableUnderline: true }}
                             autoComplete="off"
@@ -102,6 +116,9 @@ export default function NewJobModal() {
                     <Grid item xs={6}>
                         <TextField
                             required
+                            name="companyURL"
+                            value={jobDetails.companyURL}
+                            onChange={handleChange}
                             type="url"
                             InputProps={{ disableUnderline: true }}
                             autoComplete="off"
@@ -118,6 +135,9 @@ export default function NewJobModal() {
                     <Grid item xs={6}>
                         <TextField
                             required
+                            name="location"
+                            value={jobDetails.location}
+                            onChange={handleChange}
                             type="text"
                             InputProps={{ disableUnderline: true }}
                             autoComplete="off"
@@ -135,6 +155,9 @@ export default function NewJobModal() {
                         <TextField
                             required
                             select
+                            name="type"
+                            value={jobDetails.type}
+                            onChange={handleChange}
                             type="text"
                             InputProps={{ disableUnderline: true }}
                             margin="dense"
@@ -156,6 +179,9 @@ export default function NewJobModal() {
                         <TextField
                             required
                             select
+                            name="remote"
+                            value={jobDetails.remote}
+                            onChange={handleChange}
                             type="text"
                             InputProps={{ disableUnderline: true }}
                             margin="dense"
@@ -175,6 +201,9 @@ export default function NewJobModal() {
                         <TextField
                             required
                             multiline
+                            name="description"
+                            value={jobDetails.description}
+                            onChange={handleChange}
                             rows={4}
                             type="text"
                             InputProps={{ disableUnderline: true }}
