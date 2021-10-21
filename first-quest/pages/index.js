@@ -3,7 +3,7 @@ import { Grid, Paper, Container, CircularProgress} from '@mui/material'
 import JobCard from "../components/Job/JobCard";
 import Head from 'next/head'
 import { firebaseApp } from '../firebase/clientApp';
-import { getFirestore, collection, query, getDocs, orderBy } from "firebase/firestore";
+import { getFirestore, collection, query, getDocs, orderBy, addDoc, serverTimestamp } from "firebase/firestore";
 import { Box } from '@mui/system';
 import NewJobModal from '../components/Job/NewJobModal';
 
@@ -14,6 +14,7 @@ export default function Home() {
 
   const db = getFirestore(firebaseApp);
   const getJobs = query(collection(db, "jobs"), orderBy('datePosted', 'desc'));
+
 
   // Fetch jobs from database, including job ID and date
   const fetchJobs = async () => {
@@ -27,11 +28,19 @@ export default function Home() {
     setLoading(false);
   };
 
+
+  // Post job to database, including job ID and date
+  const postJob = async jobDetails => {
+    await addDoc(collection(db, "jobs"), {
+      ...jobDetails,
+      datePosted: serverTimestamp()
+    })
+  }
+
+
   useEffect(() => {
     fetchJobs();
   }, []);
-
-  console.log(jobs)
 
   return (
     <Container>
@@ -39,7 +48,7 @@ export default function Home() {
         <title>Quests ~ Gaming Jobs</title>
       </Head>
 
-      <NewJobModal />
+      <NewJobModal postJob={postJob} />
 
       <Grid container spacing={3} justify="center">
         <Grid item xs={12} md={8}>
