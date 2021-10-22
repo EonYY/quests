@@ -8,8 +8,8 @@ import {
     DialogTitle, 
     DialogContent, 
     DialogActions, 
-    Button 
 } from "@mui/material";
+import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from "@mui/icons-material/Send";
 import CloseIcon from '@mui/icons-material/Close';
 import { useState, useEffect } from "react";
@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 
 
 export default function NewJobModal(props) {
+    const [loading, setLoading] = useState(false)
     const [jobDetails, setJobDetails] = useState({
         title: "",
         category: "",
@@ -36,11 +37,17 @@ export default function NewJobModal(props) {
     };
 
     const handleSubmit = async () => {
+        setLoading(true);
         await props.postJob(jobDetails);
+        setLoading(false);
     }
 
         return (
-            <Dialog open={true} fullWidth>
+            <Dialog 
+                open={props.openNewJobModal} 
+                onClose={props.closeNewJobModal}
+                fullWidth
+            >
                 <DialogTitle>
                     <Box
                         display="flex" 
@@ -48,7 +55,7 @@ export default function NewJobModal(props) {
                         alignItems="center"
                     >
                         New Job
-                        <IconButton>
+                        <IconButton onClick={props.closeNewJobModal}>
                             <CloseIcon />
                         </IconButton>
                     </Box>
@@ -186,7 +193,6 @@ export default function NewJobModal(props) {
                                 name="remote"
                                 value={jobDetails.remote}
                                 onChange={handleChange}
-                                type="text"
                                 InputProps={{ disableUnderline: true }}
                                 margin="dense"
                                 label="Remote?"
@@ -227,13 +233,15 @@ export default function NewJobModal(props) {
                 {/* Submit Job Button */}
                 <DialogActions>
                     <Box width="100%" display="flex" justifyContent="center" alignItems="center">
-                        <Button
+                        <LoadingButton
+                            loading={loading}
+                            loadingPosition="end"
                             onClick={handleSubmit} 
                             variant="contained"
                             endIcon={<SendIcon />}
                         >
                             Submit
-                        </Button>
+                        </LoadingButton>
                     </Box>
                 </DialogActions>
             </Dialog>

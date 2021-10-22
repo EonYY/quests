@@ -4,9 +4,7 @@ import Home from '.'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
       <Home />
-    </Layout>
   )
 }
 

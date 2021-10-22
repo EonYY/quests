@@ -1,4 +1,4 @@
-import { Typography, Drawer, List, ListItem, ListItemIcon, ListItemText } from "@mui/material"
+import { Typography, Drawer, List, ListItem, ListItemIcon, ListItemText, Button } from "@mui/material"
 import { makeStyles } from "@mui/styles"
 import { AddCircleOutline, AnnouncementTwoTone, InfoTwoTone, EmailTwoTone } from "@mui/icons-material"
 import { useRouter } from "next/dist/client/router"
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     }
 })
 
-export default function Layout({ children }) {
+export default function Layout({ children }, props) {
     const classes = useStyles()
     const router = useRouter()
     const location = router.asPath
@@ -73,6 +73,14 @@ export default function Layout({ children }) {
                 </div>
 
                 {/* List & Links */}
+                <Button
+                    width="100%"
+                    size="large"
+                    variant="contained"
+                    onClick={props.openNewJob}
+                >
+                    Post Job
+                </Button>
                 <List>
                     {menuItems.map(item => (
                         <ListItem

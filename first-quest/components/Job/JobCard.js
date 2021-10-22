@@ -42,7 +42,7 @@ export default function JobCard(job) {
             >
               <CardMedia
                 className={classes.media}
-                image="https://pixabay.com/get/ge66ccf4e98a7479c3469b474250b59d8a9ba0ca945148ce754c60e4df27d666a5ea09295aa784b53df0e6403e6aded0c_640.png"
+                image="#"
                 alt={job.companyName}
               />
             </Grid>
