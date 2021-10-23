@@ -33,6 +33,7 @@ export default function Layout({ children }, props) {
     const router = useRouter()
     const location = router.asPath
 
+
     const menuItems = [
         {
             text: "Post Job",
@@ -55,6 +56,8 @@ export default function Layout({ children }, props) {
             path: "/"
         },
     ]
+    
+    const handleOpen = () => (props.setShowNewJobModal(true));
 
     return (
         <div className={classes.root}>
@@ -77,7 +80,7 @@ export default function Layout({ children }, props) {
                     width="100%"
                     size="large"
                     variant="contained"
-                    onClick={props.openNewJob}
+                    onClick={handleOpen}
                 >
                     Post Job
                 </Button>

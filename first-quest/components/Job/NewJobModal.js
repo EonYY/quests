@@ -12,7 +12,7 @@ import {
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from "@mui/icons-material/Send";
 import CloseIcon from '@mui/icons-material/Close';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 const initState = {
@@ -26,9 +26,11 @@ const initState = {
     remote: {},
 }
 
+
 export default function NewJobModal(props) {
     const [loading, setLoading] = useState(false);
     const [jobDetails, setJobDetails] = useState(initState);
+
 
     function handleChange(e) {
         setJobDetails(oldState => ({ 
@@ -43,16 +45,12 @@ export default function NewJobModal(props) {
         setLoading(false);
     }
 
-    const closeNewJobModal = () => {
-        setJobDetails(initState);
-        setLoading(false);
-        props.closeNewJobModal();
-    }
+    const handleClose = () => props.setShowNewJobModal(false);
 
         return (
             <Dialog 
-                open={props.openNewJobModal} 
-                onClose={props.closeNewJobModal}
+                open={props.showNewJobModal}
+                onClose={handleClose}
                 fullWidth
             >
                 <DialogTitle>
@@ -62,7 +60,7 @@ export default function NewJobModal(props) {
                         alignItems="center"
                     >
                         New Job
-                        <IconButton onClick={closeNewJobModal}>
+                        <IconButton onClick={handleClose}>
                             <CloseIcon />
                         </IconButton>
                     </Box>
