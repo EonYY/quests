@@ -15,19 +15,20 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useState, useEffect } from "react";
 
 
+const initState = {
+    title: "",
+    category: "",
+    companyName: "",
+    companyURL: "",
+    location: "",
+    type: "",
+    description: "",
+    remote: {},
+}
 
 export default function NewJobModal(props) {
-    const [loading, setLoading] = useState(false)
-    const [jobDetails, setJobDetails] = useState({
-        title: "",
-        category: "",
-        companyName: "",
-        companyURL: "",
-        location: "",
-        type: "",
-        description: "",
-        remote: {},
-    });
+    const [loading, setLoading] = useState(false);
+    const [jobDetails, setJobDetails] = useState(initState);
 
     function handleChange(e) {
         setJobDetails(oldState => ({ 
@@ -40,6 +41,12 @@ export default function NewJobModal(props) {
         setLoading(true);
         await props.postJob(jobDetails);
         setLoading(false);
+    }
+
+    const closeNewJobModal = () => {
+        setJobDetails(initState);
+        setLoading(false);
+        props.closeNewJobModal();
     }
 
         return (
@@ -55,7 +62,7 @@ export default function NewJobModal(props) {
                         alignItems="center"
                     >
                         New Job
-                        <IconButton onClick={props.closeNewJobModal}>
+                        <IconButton onClick={closeNewJobModal}>
                             <CloseIcon />
                         </IconButton>
                     </Box>
