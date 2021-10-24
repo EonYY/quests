@@ -42,10 +42,15 @@ export default function NewJobModal(props) {
     const handleSubmit = async () => {
         setLoading(true);
         await props.postJob(jobDetails);
-        setLoading(false);
+        handleClose();
     }
 
-    const handleClose = () => props.setShowNewJobModal(false);
+    const handleClose = () => {
+        setJobDetails(initState);
+        setLoading(false);
+        props.closeModal();
+    }
+
 
         return (
             <Dialog 

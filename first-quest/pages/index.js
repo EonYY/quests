@@ -7,6 +7,7 @@ import { getFirestore, collection, query, getDocs, orderBy, addDoc, serverTimest
 import { Box } from '@mui/system';
 import NewJobModal from '../components/Job/NewJobModal';
 import Layout from '../components/Layout';
+import SearchBar from '../components/SearchBar';
 
 
 
@@ -49,7 +50,7 @@ export default function Home() {
   const handleOpen = () => setShowNewJobModal(true);
 
   return (
-    <Layout setShowNewJobModal={setShowNewJobModal} >
+    <Layout>
     <Container>
       <Head>
         <title>Quests ~ Gaming Jobs</title>
@@ -58,26 +59,30 @@ export default function Home() {
       {/*Modal that appears when a user wants to post a new job listing */}
       <NewJobModal
         showNewJobModal={showNewJobModal}
-        setShowNewJobModal={setShowNewJobModal}
+        closeModal={() => setShowNewJobModal(false)}
         postJob={postJob} 
       />
 
       {/*Display job cards or loading bar*/}
       <Grid container spacing={3} justify="center">
+
+        {/* Display job cards */}
         <Grid item xs={12} md={8}>
+
+          <SearchBar />
+
           {loading ? (
           <Box display="flex" justifyContent="center">
             <CircularProgress color="secondary" />
           </Box>
           ) : (jobs.map((job) => 
-            <JobCard key={job.id} {...job} />
+            <JobCard spacing={3} key={job.id} {...job} />
           ))}
         </Grid>
 
         <Grid item xs={12} md={4} justify="center">
           <Paper>News / Promoted</Paper>
-
-          {/*Temporary Post Job Button */}
+          {/*Temporary post job button */}
           <Button
             size="large"
             variant="contained"
@@ -86,6 +91,7 @@ export default function Home() {
             Post Job
           </Button>
         </Grid>
+        
       </Grid>
     </Container>
     </Layout>
