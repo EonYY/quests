@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Grid, Paper, Container, CircularProgress } from '@mui/material'
+import { Grid, Paper, Container, CircularProgress, Button } from '@mui/material'
 import JobCard from "../components/Job/JobCard";
 import Head from 'next/head'
 import { firebaseApp } from '../firebase/clientApp';
@@ -46,7 +46,7 @@ export default function Home() {
     fetchJobs();
   }, []);
 
-  
+  const handleOpen = () => setShowNewJobModal(true);
 
   return (
     <Layout setShowNewJobModal={setShowNewJobModal} >
@@ -76,6 +76,15 @@ export default function Home() {
 
         <Grid item xs={12} md={4} justify="center">
           <Paper>News / Promoted</Paper>
+
+          {/*Temporary Post Job Button */}
+          <Button
+            size="large"
+            variant="contained"
+            onClick={handleOpen}
+          >
+            Post Job
+          </Button>
         </Grid>
       </Grid>
     </Container>

@@ -57,7 +57,6 @@ export default function Layout({ children }, props) {
         },
     ]
     
-    const handleOpen = () => (props.setShowNewJobModal(true));
 
     return (
         <div className={classes.root}>
@@ -76,14 +75,6 @@ export default function Layout({ children }, props) {
                 </div>
 
                 {/* List & Links */}
-                <Button
-                    width="100%"
-                    size="large"
-                    variant="contained"
-                    onClick={handleOpen}
-                >
-                    Post Job
-                </Button>
                 <List>
                     {menuItems.map(item => (
                         <ListItem
