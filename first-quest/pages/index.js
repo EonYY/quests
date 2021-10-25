@@ -49,7 +49,6 @@ export default function Home() {
 
   return (
     <Layout setShowNewJobModal={setShowNewJobModal}>
-    <Container>
       <Head>
         <title>Quests ~ Gaming Jobs</title>
       </Head>
@@ -61,29 +60,27 @@ export default function Home() {
         postJob={postJob} 
       />
 
-      {/*Display job cards or loading bar*/}
-      <Grid container spacing={3} justify="center">
+      <Grid container spacing={3}>
 
-        {/* Display job cards */}
-        <Grid item xs={12} md={8}>
-
-          <SearchBar />
-
+        {/* Display job cards and search bar */}
+        <Grid item container xs={12} md={8} spacing={3}>
           {loading ? (
-          <Box display="flex" justifyContent="center">
-            <CircularProgress color="secondary" />
-          </Box>
-          ) : (jobs.map((job) => 
-            <JobCard spacing={3} key={job.id} {...job} />
-          ))}
+            <Box display="flex" justifyContent="center">
+              <CircularProgress color="secondary" />
+            </Box>
+            ) : (jobs.map((job) => (
+                  <Grid item xs={12}>
+                    <JobCard key={job.id} {...job} />
+                  </Grid>
+          )))}
         </Grid>
+
 
         <Grid item xs={12} md={4} justify="center">
           <Paper>News / Promoted</Paper>
         </Grid>
         
       </Grid>
-    </Container>
     </Layout>
   )
 }
