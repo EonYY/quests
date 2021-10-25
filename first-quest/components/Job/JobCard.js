@@ -34,7 +34,7 @@ export default function JobCard(job) {
 
             {/*Left Side*/}
             <Grid 
-              item xs={3} 
+              item xs={2} 
               container
               direction="row"
               justifyContent="center"
@@ -50,7 +50,7 @@ export default function JobCard(job) {
 
             {/*Middle*/}
             <Grid 
-              item xs={5}
+              item xs={6}
               container
               direction="row"
               justifyContent="flex-start"

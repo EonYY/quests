@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     }
 })
 
-export default function Layout({ children }, props) {
+export default function Layout(props) {
     const classes = useStyles()
     const router = useRouter()
     const location = router.asPath
@@ -57,6 +57,8 @@ export default function Layout({ children }, props) {
         },
     ]
     
+    const handleOpen = () => props.setShowNewJobModal(true);
+
 
     return (
         <div className={classes.root}>
@@ -75,6 +77,13 @@ export default function Layout({ children }, props) {
                 </div>
 
                 {/* List & Links */}
+                <Button
+                    size="large"
+                    variant="contained"
+                    onClick={handleOpen}
+                >
+                    Post Job
+                </Button>
                 <List>
                     {menuItems.map(item => (
                         <ListItem
@@ -92,7 +101,7 @@ export default function Layout({ children }, props) {
 
             {/* main content */}
             <div className={classes.page}>
-                { children }
+                {props.children}
             </div>
         </div>
     );
