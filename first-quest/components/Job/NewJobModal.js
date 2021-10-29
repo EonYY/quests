@@ -64,7 +64,7 @@ export default function NewJobModal(props) {
                         justifyContent="space-between" 
                         alignItems="center"
                     >
-                        Post a New Job
+                        New Job – Add Your Listing
                         <IconButton onClick={handleClose}>
                             <CloseIcon />
                         </IconButton>
