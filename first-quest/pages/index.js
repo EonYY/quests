@@ -63,7 +63,7 @@ export default function Home() {
       <Grid container spacing={3} p={3}>
 
         {/* Display job cards and search bar */}
-        <Grid item container xs={12} md={8} spacing={3}>
+        <Grid item container xs={12} md={8} spacing={5}>
           <Grid item xs={12}>
             <SearchBar />
           </Grid>

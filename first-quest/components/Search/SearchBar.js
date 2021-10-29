@@ -5,10 +5,16 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 export default function SearchBar() {
     return (
         <Box>
-            <Grid container spacing={3}>
+            <Grid 
+                container 
+                spacing={3}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+            >
 
             {/* Job search field */}
-            <Grid item xs={3.5}>
+            <Grid item xs={4}>
                 <TextField
                     hiddenLabel
                     fullWidth
@@ -31,7 +37,7 @@ export default function SearchBar() {
             </Grid>
 
             {/* Job location field */}
-            <Grid item xs={3.5}>
+            <Grid item xs={4}>
                 <TextField
                     fullWidth
                     hiddenLabel
@@ -54,24 +60,21 @@ export default function SearchBar() {
             </Grid>
 
             {/* Job category field */}
-            <Grid item xs={3.5}>
+            <Grid item xs={4}>
                 <TextField
                     select
                     fullWidth
-                    label="Category"
+                    hiddenLabel
+                    defaultValue="none"
                     size="small"
                     variant="filled"
                 >
+                    <MenuItem value="none" disabled>Category</MenuItem>
                     <MenuItem value="Game Development">Game Development</MenuItem>
                     <MenuItem value="eSports">eSports</MenuItem>
                     <MenuItem value="Customer Service">Customer Service</MenuItem>
                     <MenuItem value="Business">Business</MenuItem>
                 </TextField>
-            </Grid>
-
-            {/* Job filter icons */}
-            <Grid item xs={1.5}>
-
             </Grid>
 
             </Grid>
