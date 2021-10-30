@@ -36,6 +36,25 @@ export default function SearchBar() {
                 />
             </Grid>
 
+            {/* Job category field */}
+            <Grid item xs={4}>
+                <TextField
+                    select
+                    fullWidth
+                    hiddenLabel
+                    defaultValue="none"
+                    size="small"
+                    variant="filled"
+                >
+                    <MenuItem value="none" disabled>Category</MenuItem>
+                    <MenuItem value="Game Development">Game Development</MenuItem>
+                    <MenuItem value="eSports">eSports</MenuItem>
+                    <MenuItem value="Customer Service">Customer Service</MenuItem>
+                    <MenuItem value="Business">Business</MenuItem>
+                </TextField>
+            </Grid>
+
+
             {/* Job location field */}
             <Grid item xs={4}>
                 <TextField
@@ -57,24 +76,6 @@ export default function SearchBar() {
                                         </InputAdornment>
                     }}
                 />
-            </Grid>
-
-            {/* Job category field */}
-            <Grid item xs={4}>
-                <TextField
-                    select
-                    fullWidth
-                    hiddenLabel
-                    defaultValue="none"
-                    size="small"
-                    variant="filled"
-                >
-                    <MenuItem value="none" disabled>Category</MenuItem>
-                    <MenuItem value="Game Development">Game Development</MenuItem>
-                    <MenuItem value="eSports">eSports</MenuItem>
-                    <MenuItem value="Customer Service">Customer Service</MenuItem>
-                    <MenuItem value="Business">Business</MenuItem>
-                </TextField>
             </Grid>
 
             </Grid>
