@@ -172,7 +172,7 @@ export default function NewJobModal(props) {
                         </Grid>
 
                         {/* Job Type */}
-                        <Grid item xs={3}>
+                        <Grid item xs={6}>
                             <TextField
                                 required
                                 select
@@ -192,27 +192,6 @@ export default function NewJobModal(props) {
                                 <MenuItem value="Contract">Contract</MenuItem>
                                 <MenuItem value="Freelance">Freelance</MenuItem>
                                 <MenuItem value="Internship">Internship</MenuItem>
-                            </TextField>
-                        </Grid>
-
-                        {/* Remote Job? */}
-                        <Grid item xs={3}>
-                            <TextField
-                                required
-                                select
-                                name="remote"
-                                value={jobDetails.remote}
-                                onChange={handleChange}
-                                InputProps={{ disableUnderline: true }}
-                                margin="dense"
-                                label="Remote?"
-                                fullWidth
-                                variant="filled"
-                                size="small"
-                            >
-                                <MenuItem value={true}>Yes</MenuItem>
-                                <MenuItem value={false}>No</MenuItem>
-            
                             </TextField>
                         </Grid>
 
