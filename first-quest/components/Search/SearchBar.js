@@ -1,8 +1,23 @@
 import { TextField, InputAdornment, IconButton, Box, MenuItem, Grid } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useState } from "react"
 
 export default function SearchBar() {
+    const [jobSearch, setJobSearch] = useState({
+        type: '',
+        location: '',
+    });
+
+    function handleChange(e) {
+        setJobSearch(oldState => ({ 
+            ...oldState, 
+            [e.target.name]: e.target.value, 
+        }));
+    };
+
+console.log(jobSearch)
+
     return (
         <Box>
             <Grid 
@@ -42,6 +57,9 @@ export default function SearchBar() {
                     select
                     fullWidth
                     hiddenLabel
+                    onChange={handleChange}
+                    name="type"
+                    value={jobSearch.type}
                     defaultValue="none"
                     size="small"
                     variant="filled"
@@ -60,6 +78,9 @@ export default function SearchBar() {
                 <TextField
                     fullWidth
                     hiddenLabel
+                    onChange={handleChange}
+                    name="location"
+                    value={jobSearch.location}
                     type="text"
                     placeholder="Location"
                     size="small"
