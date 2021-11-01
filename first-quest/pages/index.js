@@ -22,6 +22,7 @@ export default function Home() {
 
   // Fetch jobs from database, including job ID and date
   const fetchJobs = async () => {
+    setLoading(true);
     const req = await getDocs(getJobs);
     const tempJobs = req.docs.map((job) => ({ 
       ...job.data(),
