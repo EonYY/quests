@@ -96,10 +96,10 @@ export default function Home(props) {
             ) : (
               <>
               {customSearch && (
-              <Box display="flex" justifyContent="flex-end" my={2}>
+              <Box my={2} display="flex" width="100%" justifyContent="flex-end">
                 <Button onClick={fetchJobs}>
                   <CloseIcon size={20} />
-                  Custom Search
+                  View All Jobs
                 </Button>
               </Box>
               )}
