@@ -25,11 +25,16 @@ const useStyles = makeStyles({
 })
 
 export default function JobCard(job) {
-  const classes = useStyles()
+  const classes = useStyles();
+  const jobListingURL = "localhost:3000/" + [job.id];
+
+  const openJobListing = () => {
+    window.open(jobListingURL, "self");
+  }
 
     return (
       <Card elevation={8} className={classes.root}>
-        <CardActionArea>
+        <CardActionArea type="button" onClick={openJobListing}>
           <Grid container>
 
             {/*Left Side*/}
