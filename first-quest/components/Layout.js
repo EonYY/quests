@@ -36,11 +36,6 @@ export default function Layout(props) {
 
     const menuItems = [
         {
-            text: "Post Job",
-            icon: <AddCircleOutline />,
-            path: "/post"
-        },
-        {
             text: "View Jobs",
             icon: <AnnouncementTwoTone />,
             path: "/"

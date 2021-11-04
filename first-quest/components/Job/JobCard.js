@@ -29,12 +29,12 @@ export default function JobCard(job) {
   const jobListingURL = "localhost:3000/" + [job.id];
 
   const openJobListing = () => {
-    window.open(jobListingURL, "self");
+    window.open(jobListingURL, false);
   }
 
     return (
       <Card elevation={8} className={classes.root}>
-        <CardActionArea type="button" onClick={openJobListing}>
+        <CardActionArea onClick={openJobListing}>
           <Grid container>
 
             {/*Left Side*/}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Grid, Paper, Container, CircularProgress, Button } from '@mui/material'
+import { Grid, Paper, CircularProgress, Button } from '@mui/material'
 import JobCard from "../components/Job/JobCard";
 import Head from 'next/head'
 import { firebaseApp } from '../firebase/clientApp';
@@ -81,7 +81,7 @@ export default function Home(props) {
         closeModal={() => setShowNewJobModal(false)}
         postJob={postJob} 
       />
-
+      
       <Grid container spacing={3} p={3}>
 
         {/* Display job cards and search bar */}
