@@ -40,16 +40,6 @@ export default function Layout(props) {
             icon: <AnnouncementTwoTone />,
             path: "/"
         },
-        {
-            text: "???",
-            icon: <InfoTwoTone />,
-            path: "/"
-        },
-        {
-            text: "???",
-            icon: <EmailTwoTone />,
-            path: "/"
-        },
     ]
     
     const handleOpen = () => props.setShowNewJobModal(true);
