@@ -54,7 +54,7 @@ export default function SearchBar(props) {
                                             </InputAdornment>
                         }}
                     />
-                </Grid>
+                </Grid> 
 
                 {/* Job category field */}
                 <Grid item xs={3.5}>

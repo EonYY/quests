@@ -114,7 +114,7 @@ export default function Home(props) {
         </Grid>
 
 
-        <Grid item xs={12} md={4} justify="center">
+        <Grid item xs={12} md={4} display="flex" justifyContent="center">
           <Paper>News / Promoted</Paper>
         </Grid>
         
